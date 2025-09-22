@@ -5,7 +5,7 @@ API_URL="https://aviationweather.gov/api/data/metar"
 OUTPUT_DIR="raw_metars"
 AIRPORT_CODES_FILE="airport_codes.txt"
 
-mkdir -p OUTPUT_DIR
+mkdir -p "$OUTPUT_DIR"
 
 echo "Fetching METAR data for airports..."
 
