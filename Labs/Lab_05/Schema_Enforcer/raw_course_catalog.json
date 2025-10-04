@@ -1,0 +1,70 @@
+[
+    {
+        "course_id": "DS2002",
+        "section": "001",
+        "title": "Data Science Systems",
+        "level": 200,
+        "instructors": [
+            {
+                "name": "Austin Rivera",
+                "role": "Primary"
+            },
+            {
+                "name": "Heywood Williams-Tracy",
+                "role": "TA"
+            }
+        ]
+    },
+    {
+        "course_id": "CS3710",
+        "title": "Intro to Cybersecurity",
+        "level": 300,
+        "instructors": [
+            {
+                "name": "Angela Orebaugh",
+                "role": "Primary"
+            }
+        ]
+    },
+    {
+        "course_id": "STS2600",
+        "title": "Engineering Ethics",
+        "level": 200,
+        "instructors": [
+            {
+                "name": "William Davis",
+                "role": "Primary"
+            },
+            {
+                "name": "Sue Keeney",
+                "role": "TA"
+            }
+        ]
+    },
+    {
+        "course_id": "CS4640",
+        "title": "Programming Languages for Web Applications",
+        "level": 400,
+        "instructors": [
+            {
+                "name": "Sarah Elder",
+                "role": "Primary"
+            }
+        ]
+    },
+    {
+        "course_id": "PSYC1010",
+        "title": "Intro to Pyschology",
+        "level": 100,
+        "instructors": [
+            {
+                "name": "Christopher Mazurek",
+                "role": "Primary"
+            },
+            {
+                "name": "Alba Tross",
+                "role": "TA"
+            }
+        ]
+    }
+]
