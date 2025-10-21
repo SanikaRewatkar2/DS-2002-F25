@@ -36,6 +36,32 @@ def _load_lookup_dir(lookup_dir): # load json prices
     lookup_df = lookup_df.drop_duplicates(subset=['card_id'], keep='first') # drop duplicates
     return lookup_df
         
+# load inventory dir function
+def _load_inventory_dir(inventory_dir):
+    inventory_data = []
+    # Labs\Lab_04\pokemon_lab\inventory_dir is the relative path
+    # for loop over all files in lookup directory: https://pieriantraining.com/iterate-over-files-in-directory-using-python/
+    for filename in os.listdir("Labs/Lab_04/pokemon_lab/{inventory_dir}".format(inventory_dir=inventory_dir)): # not efficient but i don't care
+        if filename.endswith('.csv'):
+            temp_inv_df = pd.read_csv("Labs/Lab_04/pokemon_lab/{inventory_dir}/{filename}".format(inventory_dir=inventory_dir, filename=filename)) # read csv https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html#pandas.read_csv
+            #print(temp_inv_df) #aaa
+            inventory_data.append(temp_inv_df) # append
+    print(inventory_data)
+    # check if empty
+    if len(inventory_data) == 0:
+        return pd.DataFrame() # return empty df ( I wanted to use the "new" keyword but this isn't java aaa )
+    # concat
+    inventory_df = pd.concat(inventory_data)
+    # construct shared keyyyyyyy
+    shared_keys = []
+    for index, row in inventory_df.iterrows(): # https://note.nkmk.me/en/python-pandas-dataframe-for-iteration/
+        shared_keys.append("{set_id}-{card_number}".format(set_id=row["set_id"], card_number=row["card_number"]))
+    # otherwise give a shared key https://note.nkmk.me/en/python-pandas-assign-append/
+    inventory_df.insert(0, "card_id", shared_keys) 
+    #print(inventory_df)
+    return inventory_df
+
 
 if __name__ == "__main__":
-    print(_load_lookup_dir("card_inventory_test"))
+    #print(_load_lookup_dir("card_inventory_test"))
+    print(_load_inventory_dir("card_inventory_test"))
