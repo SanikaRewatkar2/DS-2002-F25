@@ -35,7 +35,7 @@ fi
 # if we got nothing (invalid id) - (based on lab 03)
 if [ ! -s "$OUTPUT_FILE" ] || [ "$(jq 'length' "$OUTPUT_FILE")" -eq 0 ]; then
     echo "Warning: No cards found for $SET_ID. The API returned an empty response." >&2
-else
+else # success! Helpful message for user!
     echo "-> Cards from set with ID $SET_ID saved successfully."
 fi
 
