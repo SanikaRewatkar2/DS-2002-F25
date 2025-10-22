@@ -1,0 +1,37 @@
+--- Running Test Pipeline (Built-in Test Modes) ---
+Script is Starting Test Mode
+Card Portfolio Successfully Updated!
+Script is Starting Test Mode
+Total Portfolio Value: $326.55
+Most Valuable Card: ID - base0-4, Name - Charizard, Value - $250.75
+Test complete.
+
+--- Adding New Card Set ---
+Enter TCG Card Set ID: base1
+-> Fetching card data for base1 ...
+jq: parse error: Invalid numeric literal at line 1, column 6
+C:\Users\SanikaRewatkar\Documents\College\DataScienceSystems\DS-2002-F25\Labs\Lab_04\pokemon_lab\add_card_set.sh: line 36: [: : integer expression expected
+-> Cards from set with ID base1 saved successfully.
+Card fetching complete!
+
+[Basically, here I got the accursed Error 504.]
+[However, I had already run these scripts and they ran perfectly]
+[As you could probably tell from my commit history...]
+[So I just copy-pasted my base1.json abd base4.json from my last commits]
+
+--- Starting Portfolio Build Workflow ---
+Do you want to add a NEW card set? (yes/no)
+no
+Do you want to refresh ALL existing card sets? (yes/no)
+no
+Production Pipeline Running...
+<- Updating Card Portfolio...
+Card Portfolio Successfully Updated!
+Portfolio Updated Successfully!
+<- Generating Portfolio Summary...
+Total Portfolio Value: $5690.04
+Most Valuable Card: ID - base1-4, Name - Charizard, Value - $458.29
+Summary Generated Successfully!
+Production Pipeline Completed Successfully!
+
+
