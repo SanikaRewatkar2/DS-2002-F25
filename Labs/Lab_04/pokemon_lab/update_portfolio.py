@@ -98,13 +98,22 @@ def update_portfolio(inventory_dir, lookup_dir, output_file):
         indices.append("{binder_name}{page_number}{slot_number}".format(binder_name=row["binder_name"], page_number=row["page_number"], slot_number=row["slot_number"]))
     # otherwise give a shared key https://note.nkmk.me/en/python-pandas-assign-append/
     final_inventory_df.insert(0, "index", indices) 
-    print(final_inventory_df) # SANIRY CHECK
+    #print(final_inventory_df) # SANIRY CHECK
     final_cols.insert(0, "index")
     # now csv mcgee stuff
     final_inventory_df.to_csv(filepath, index=False) # https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html
     print("Card Portfolio Successfully Updated!")
 
+# ok time for main and test
+def main():
+    update_portfolio("card_inventory", "card_set_lookup", "card_portfolio.csv") # i set my filepaths up wrong but who cares :)
+
+def test():
+    update_portfolio("card_inventory_test", "card_set_lookup_test", "test_card_portfolio.csv") # i set my filepaths up wrong but who cares :)
+
 if __name__ == "__main__":
     #print(_load_lookup_dir("card_set_lookup_test"))
     #print(_load_inventory_dir("card_inventory_test"))
-    update_portfolio("card_inventory_test", "card_set_lookup_test", "example.csv")
+    print("Script is Starting Test Mode", file=sys.stderr) # https://pythonhow.com/how/print-to-stderr-in-python/
+    test()
+    
