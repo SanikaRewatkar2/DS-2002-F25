@@ -116,3 +116,6 @@ if __name__ == "__main__":
     #print(_load_inventory_dir("card_inventory_test"))
     print("Script is Starting Test Mode", file=sys.stderr) # https://pythonhow.com/how/print-to-stderr-in-python/
     test()
+    # now let us test main mode for a hot second
+    #print("Script is Starting Regular Mode", file=sys.stderr) # https://pythonhow.com/how/print-to-stderr-in-python/
+    #main()
