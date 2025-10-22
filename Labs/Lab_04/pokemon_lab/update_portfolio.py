@@ -11,9 +11,9 @@ def _load_lookup_dir(lookup_dir): # load json prices
     all_lookup_df = [] # here's my empty list
     # Labs\Lab_04\pokemon_lab\lookup_dir is the relative path
     # for loop over all files in lookup directory: https://pieriantraining.com/iterate-over-files-in-directory-using-python/
-    for filename in os.listdir("Labs/Lab_04/pokemon_lab/{lookup_dir}".format(lookup_dir=lookup_dir)): # not efficient but i don't care
+    for filename in os.listdir(lookup_dir): # not efficient but i don't care
         if filename.endswith('.json'):
-            filepath = "Labs/Lab_04/pokemon_lab/{lookup_dir}/{filename}".format(lookup_dir=lookup_dir, filename=filename) # construct filepath
+            filepath = "./{lookup_dir}/{filename}".format(lookup_dir=lookup_dir, filename=filename) # construct filepath
             with open(filepath, "r") as f: 
                 data = json.load(f) # load json
             # now time for pandas
@@ -41,11 +41,11 @@ def _load_lookup_dir(lookup_dir): # load json prices
 # load inventory dir function
 def _load_inventory_dir(inventory_dir):
     inventory_data = []
-    # Labs\Lab_04\pokemon_lab\inventory_dir is the relative path
+    # Labs\Lab_04\pokemon_lab\inventory_dir is the relative path (I WAS IN THE WRONG DIR)
     # for loop over all files in lookup directory: https://pieriantraining.com/iterate-over-files-in-directory-using-python/
-    for filename in os.listdir("Labs/Lab_04/pokemon_lab/{inventory_dir}".format(inventory_dir=inventory_dir)): # not efficient but i don't care
+    for filename in os.listdir(inventory_dir): # not efficient but i don't care
         if filename.endswith('.csv'):
-            temp_inv_df = pd.read_csv("Labs/Lab_04/pokemon_lab/{inventory_dir}/{filename}".format(inventory_dir=inventory_dir, filename=filename)) # read csv https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html#pandas.read_csv
+            temp_inv_df = pd.read_csv("./{inventory_dir}/{filename}".format(inventory_dir=inventory_dir, filename=filename)) # read csv https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html#pandas.read_csv
             #print(temp_inv_df) #aaa
             inventory_data.append(temp_inv_df) # append
     #print(inventory_data)
@@ -69,7 +69,7 @@ def update_portfolio(inventory_dir, lookup_dir, output_file):
     my_inventory_df = _load_inventory_dir(inventory_dir)
     my_lookup_df = _load_lookup_dir(lookup_dir)
     # check for empty inventory df https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.empty.html
-    filepath = "Labs/Lab_04/pokemon_lab/{output_file}".format(output_file=output_file) # construct filepath
+    filepath = "./{output_file}".format(output_file=output_file) # construct filepath
     if my_inventory_df.empty:
         # create csv
         headers = ["index", "card_id", "card_name", "card_number", "set_id", "set_name", "binder_name", "page_number", "slot_number", "card_market_value"]
@@ -106,14 +106,13 @@ def update_portfolio(inventory_dir, lookup_dir, output_file):
 
 # ok time for main and test
 def main():
-    update_portfolio("card_inventory", "card_set_lookup", "card_portfolio.csv") # i set my filepaths up wrong but who cares :)
+    update_portfolio("./card_inventory", "./card_set_lookup", "card_portfolio.csv") # i set my filepaths up wrong but who cares :)
 
 def test():
-    update_portfolio("card_inventory_test", "card_set_lookup_test", "test_card_portfolio.csv") # i set my filepaths up wrong but who cares :)
+    update_portfolio("./card_inventory_test", "./card_set_lookup_test", "test_card_portfolio.csv") # i set my filepaths up wrong but who cares :)
 
 if __name__ == "__main__":
     #print(_load_lookup_dir("card_set_lookup_test"))
     #print(_load_inventory_dir("card_inventory_test"))
     print("Script is Starting Test Mode", file=sys.stderr) # https://pythonhow.com/how/print-to-stderr-in-python/
     test()
-    
